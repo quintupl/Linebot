@@ -19,5 +19,9 @@
 
 
 ## 出力イメージ
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/fbb07b27-d823-4dca-b08e-d3487caaa697" />
+</p>
 
-![Image](https://github.com/user-attachments/assets/fbb07b27-d823-4dca-b08e-d3487caaa697)
+
+
