@@ -1,7 +1,7 @@
 # Linebot
 
 ### 初めに
- javaに触れてみようの一環で、Linebotを使った簡単なサービスを作ってみた。コードが汚いなどあると思われるので、適宜修正していく。
+ javaに触れてみようの一環で、Linebotを使った簡単なサービスを作ってみた。コードが汚いなどあると思われるので、適宜修正していく。  
  メインのソースコードは[/src/main/java/com/example/linebot](https://github.com/quintupl/Linebot/tree/main/src/main/java/com/example/linebot)下にある。
 
 ### 概要
