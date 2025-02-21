@@ -19,6 +19,7 @@ public class NearestStation implements Replier{
     private double latitude;
     private double longitude;
 
+    // 周辺の駅を表示するChooseStationクラスが保持している駅情報の取得
     public NearestStation(){
         this.coordinate = ChooseStation.getCoordinate();
         this.longitude = Double.valueOf(coordinate.get(0).toString());
@@ -27,6 +28,7 @@ public class NearestStation implements Replier{
 
     @Override
     public Message reply() {
+        // Yahoo!リバースジオコーダAPIを利用して、緯度と経度から住所を特定する
         this.id = "Yahoo!リバースジオコーダAPIを利用するための各自のClient ID";
         String stringUri = "https://map.yahooapis.jp/geoapi/V1/reverseGeoCoder?lat=" + this.latitude
                             + "&lon=" + this.longitude + "&appid=" + id + "&output=json";
@@ -35,11 +37,17 @@ public class NearestStation implements Replier{
         HttpRequest request = HttpRequest.newBuilder().uri(uri).GET().build();
         try {
             HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+            
+            // APIからのレスポンスのJSONObjectを作成
             JSONObject json = new JSONObject(response.body());
+
+            // データの整理(Addressに住所が紐づいているので、そこに至るまでの整理)
             JSONArray item = json.getJSONArray("Feature");
             JSONObject item2 = item.getJSONObject(0);
             JSONObject item3 = item2.getJSONObject("Property");
             Object addressName = item3.get("Address");
+
+            // LocationMessageで返答
             return new LocationMessage("最短駅" , addressName.toString() , this.latitude , this.longitude);
         } catch (IOException | InterruptedException e) {
             throw new RuntimeException();
