@@ -21,16 +21,24 @@ public class GetNearStation {
 
     public GetNearStation(MessageEvent<LocationMessageContent> event) throws BadRequestException {
         try {
+            // 送信した位置情報から位置情報を取得するMapNowクラスから緯度と経度を取得
             MapNow mapNow = new MapNow(event);
+            // 緯度と経度をまとめているArrayListの取得
             ArrayList<Double> coordinate = mapNow.getCoordinate();
+            // 取得したArrayListから緯度と経度を取得
             this.latitude = coordinate.get(0);
             this.longitude = coordinate.get(1);
+            
+            // 「HeartRails Express」の最寄駅情報取得 APIを利用して上記の緯度と経度周辺の駅を取得
             String stringUri = "http://express.heartrails.com/api/json?method=getStations&x=" + this.longitude + "&y=" + this.latitude;
             URI uri = URI.create(stringUri);
             HttpClient client = HttpClient.newHttpClient();
             HttpRequest request = HttpRequest.newBuilder().uri(uri).GET().build();
             HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+
+            // JSON形式に変換
             JSONObject json = new JSONObject(response.body());
+            // データの整理(responseに紐づくデータ群を取得し、stationに紐づくデータ群を取得)
             JSONObject item = json.getJSONObject("response");
             this.itemList = item.getJSONArray("station");
         } catch (BadRequestException e){
@@ -40,10 +48,12 @@ public class GetNearStation {
         }
     }
 
+    // インデックス番号を指定してデータを取得
     public JSONObject informationOfStation(int index) {
         return this.itemList.getJSONObject(index);
     }
 
+    // 整理したデータ群の長さを取得
     public int numberOfItemList(){
         return this.itemList.length();
     }
