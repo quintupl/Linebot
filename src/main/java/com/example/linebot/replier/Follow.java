@@ -4,6 +4,7 @@ import com.linecorp.bot.model.event.FollowEvent;
 import com.linecorp.bot.model.message.Message;
 import com.linecorp.bot.model.message.TextMessage;
 
+// botを友達追加したときのメッセージを表示するクラス
 public class Follow implements Replier {
     private FollowEvent event;
 
