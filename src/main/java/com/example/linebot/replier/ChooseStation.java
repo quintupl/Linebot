@@ -15,6 +15,7 @@ import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
 
+// 取得した周辺の駅を表示するためのテンプレートを作成するクラス
 public class ChooseStation implements Replier {
     public static ArrayList<ArrayList<JSONObject>> dataList;
 
