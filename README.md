@@ -2,6 +2,7 @@
 
 ### 初めに
  javaに触れてみようの一環で、Linebotを使った簡単なサービスを作ってみた。コードが汚いなどあると思われるので、適宜修正していく。
+ メインのソースコードは[/src/main/java/com/example/linebot](/java/com/example/linebot)
 
 ### 概要
  Lineから位置情報を送信すると、送信した位置から近い順に最大3つまで周辺の駅が表示される。
