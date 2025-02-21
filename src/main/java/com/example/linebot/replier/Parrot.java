@@ -5,6 +5,7 @@ import com.linecorp.bot.model.event.message.TextMessageContent;
 import com.linecorp.bot.model.message.Message;
 import com.linecorp.bot.model.message.TextMessage;
 
+// オウム返しするクラス
 public class Parrot implements Replier{
 
     private MessageEvent<TextMessageContent> event;
