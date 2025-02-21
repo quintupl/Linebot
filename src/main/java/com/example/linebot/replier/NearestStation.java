@@ -12,6 +12,7 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.util.ArrayList;
 
+// 最寄り駅を取得して表示するクラス
 public class NearestStation implements Replier{
     private String id;
     private ArrayList<Object> coordinate;
