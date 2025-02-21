@@ -6,6 +6,7 @@ import com.linecorp.bot.model.message.Message;
 import java.net.URI;
 import java.util.Random;
 
+// おみくじの結果を表示するクラス
 public class Omikuji implements Replier{
     @Override
     public Message reply(){
