@@ -27,7 +27,7 @@ public class NearestStation implements Replier{
 
     @Override
     public Message reply() {
-        this.id = "dj00aiZpPUlXWDQ5Rm1DWGlFTSZzPWNvbnN1bWVyc2VjcmV0Jng9OTQ-";
+        this.id = "Yahoo!リバースジオコーダAPIを利用するための各自のClient ID";
         String stringUri = "https://map.yahooapis.jp/geoapi/V1/reverseGeoCoder?lat=" + this.latitude
                             + "&lon=" + this.longitude + "&appid=" + id + "&output=json";
         URI uri = URI.create(stringUri);
