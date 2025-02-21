@@ -48,7 +48,7 @@ public class GetNearStation {
         }
     }
 
-    // インデックス番号を指定してデータを取得
+    // インデックス番号を指定して要素を取得
     public JSONObject informationOfStation(int index) {
         return this.itemList.getJSONObject(index);
     }
