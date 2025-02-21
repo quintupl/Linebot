@@ -13,6 +13,7 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.util.ArrayList;
 
+// 周辺の駅を取得するクラス
 public class GetNearStation {
     private JSONArray itemList;
     private double latitude;
