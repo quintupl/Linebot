@@ -5,6 +5,7 @@ import com.linecorp.bot.model.message.TextMessage;
 
 import java.time.LocalTime;
 
+// 時間帯に合わせて適した挨拶をするクラス
 public class Greet implements Replier{
 
     @Override
