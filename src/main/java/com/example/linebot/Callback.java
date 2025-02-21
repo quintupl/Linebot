@@ -31,12 +31,15 @@ public class Callback {
         TextMessageContent tmc = event.getMessage();
         String text = tmc.getText();
         switch(text) {
+            // 挨拶機能
             case "やあ":
                 Greet greet = new Greet();
                 return greet.reply();
+            // おみくじ機能
             case "おみくじ":
                 Omikuji omikuji = new Omikuji();
                 return omikuji.reply();
+            // 最寄り駅表示機能
             case "最も近い駅":
                 try {
                     NearestStation nearestStation = new NearestStation();
@@ -49,11 +52,13 @@ public class Callback {
                             制作者に問い合わせてください。""");
                 }
             default:
+                // オウム返し機能
                 Parrot parrot = new Parrot(event);
                 return parrot.reply();
         }
     }
     @EventMapping
+    // 周辺の駅表示機能
     public Message LocationMessage(MessageEvent<LocationMessageContent> event){
         try {
             ChooseStation chooseStation = new ChooseStation(event);
